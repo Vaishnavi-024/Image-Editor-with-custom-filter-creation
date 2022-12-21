@@ -54,6 +54,26 @@ router.delete('/delete/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+
+})
+router.post('/authenticate', (req, res) => {
+    const formdata = req.body;
+    Model.findOne({email: formdata.email, password: formdata.password})
+    .then((result) => {
+        console.log(result);
+
+        if(result) {
+            console.log('Login Success');
+            res.json(result);
+        } else {
+            console.log('Login Failed');
+            res.status(400).json({status: 'Login Failed'});
+        }
+
+    }).catch((err) => {
+        console.error(err);
+        res.status(500).json(err);
+    })
 })
 
 module.exports = router;
