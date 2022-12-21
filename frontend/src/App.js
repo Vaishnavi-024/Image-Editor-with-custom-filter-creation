@@ -3,8 +3,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Header from './Components/Header';
 import { Components } from 'react';
-import Register from './Components/Register';
-
+import Signup from './Components/Signup'
 function App() {
   return (
     <div>
